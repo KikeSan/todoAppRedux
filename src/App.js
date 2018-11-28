@@ -1,23 +1,21 @@
 import React, { Component } from 'react'
+import Sidebar from './containers/Sidebar'
+import Main from './containers/Main'
 import './styles/index.scss'
-import Counter from './containers/Counter'
 
-export default class App extends Component {
-  state = {
-    message: 'Message'
-  }
-
-  handleToggleMessage = (message) => {
-    this.setState({ message })
-  }
-
-  render() {
-    return (
-      <div>
-        <div>
-          <Counter />
-        </div>
-      </div>
-    )
-  }
+class App extends Component {
+	render() {
+		return (
+			<div className="wrapper">
+				<div className="sidebar-app">
+					<Sidebar />
+				</div>
+				<div className="main-app">
+					<Main />
+				</div>
+			</div>
+		)
+	}
 }
+
+export default App
