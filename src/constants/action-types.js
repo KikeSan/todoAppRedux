@@ -1,1 +1,5 @@
 export const ADD_TASK = 'ADD_TASK'
+export const EDIT_TASK = 'EDIT_TASK'
+export const UPDATE_TASK = 'UPDATE_TASK'
+export const CANCEL_MODAL = 'CANCEL_MODAL'
+export const SET_FILTER = 'SET_FILTER'

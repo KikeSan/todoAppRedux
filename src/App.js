@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
-import Sidebar from './containers/Sidebar'
-import Main from './containers/Main'
+import Form from './containers/Form'
+import Filter from './containers/Filter'
+import List from './containers/List'
 import './styles/index.scss'
 
 class App extends Component {
 	render() {
 		return (
 			<div className="wrapper">
-				<div className="sidebar-app">
-					<Sidebar />
+				<div className="form-app">
+					<Form />
 				</div>
-				<div className="main-app">
-					<Main />
+				<div className="list-app">
+					<List />
+				</div>
+				<div className="filter-app">
+					<Filter />
 				</div>
 			</div>
 		)
