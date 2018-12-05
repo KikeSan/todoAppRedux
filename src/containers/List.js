@@ -18,7 +18,6 @@ const mapDispatchToProps = dispatch => {
 		editTask: idTask => dispatch(editTask(idTask))
 	}
 }
-
 class ConnectedMain extends Component {
 	constructor() {
 		super()
