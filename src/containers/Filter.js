@@ -5,7 +5,7 @@ import { setFilter } from '../actions/index'
 const mapStateToProps = state => {
 	return {
 		tasks: state.tasks,
-		setFilter: state.setFilter
+		filterBy: state.filterBy
 	}
 }
 
@@ -19,15 +19,25 @@ class ConnectedSidebar extends Component {
 	constructor() {
 		super()
 		this.handleFilter = this.handleFilter.bind(this)
+		this.cuentaActivos = this.cuentaActivos.bind(this)
 	}
 	handleFilter(e) {
-		console.log('SET_FILTER::: ' + e.target.attributes['filter-tag'].value)
 		this.props.setFilter(e.target.attributes['filter-tag'].value)
 	}
+	cuentaActivos() {
+		let numitems = 0
+		this.props.tasks.map(i => {
+			if (i.status === this.props.filterBy || this.props.filterBy === 'all') {
+				numitems++
+			}
+		})
+		return numitems
+	}
 	render() {
+		const num = this.cuentaActivos()
 		return (
 			<div>
-				<div className="counter">{this.props.tasks.length} task(s)</div>
+				<div className="counter">{num} task(s)</div>
 				<div className="controls">
 					<a className="filter-btn" onClick={this.handleFilter} filter-tag="all">
 						All

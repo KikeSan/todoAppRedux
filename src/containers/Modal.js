@@ -27,7 +27,6 @@ class ConnectedModal extends Component {
 		this.handleChange = this.handleChange.bind(this)
 		this.handleCancel = this.handleCancel.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
-		this.changeStatus = this.changeStatus.bind(this)
 		this.handleChangeSelect = this.handleChangeSelect.bind(this)
 	}
 	componentWillMount() {
@@ -58,18 +57,6 @@ class ConnectedModal extends Component {
 
 		e.preventDefault()
 		this.props.updateTask(this.state.task, this.state.status, this.state.id)
-	}
-	changeStatus(stts) {
-		switch (stts) {
-			case 'todo':
-				return 'To Do'
-			case 'doing':
-				return 'Doing'
-			case 'done':
-				return 'Done'
-			default:
-				break
-		}
 	}
 
 	render() {

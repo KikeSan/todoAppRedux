@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addTask, editTask } from '../actions/index'
 import Modal from './Modal'
+import { filtroBonito } from './functions'
 //import ItemTask from '../components/itemTask'
 
 const mapStateToProps = state => {
@@ -10,7 +11,7 @@ const mapStateToProps = state => {
 	return {
 		tasks: state.tasks,
 		modal: state.modal,
-		setFilter: state.setFilter
+		filterBy: state.filterBy
 	}
 }
 const mapDispatchToProps = dispatch => {
@@ -27,18 +28,19 @@ class ConnectedMain extends Component {
 		const idEdit = e.currentTarget.attributes['id-task'].value
 		this.props.editTask(idEdit)
 	}
+
 	render() {
 		return (
 			<div className="main">
 				<div className="content">
 					<ul>
 						{this.props.tasks.map(item => {
-							if (item.status === this.props.setFilter || this.props.setFilter === 'all')
+							if (item.status === this.props.filterBy || this.props.filterBy === 'all')
 								return (
 									<li key={item.id}>
 										<a className="itemTask" onClick={this.handleEdit} id-task={item.id}>
 											<h3>{item.task}</h3>
-											<p>{item.status}</p>
+											<p>{filtroBonito(item.status)}</p>
 										</a>
 									</li>
 								)

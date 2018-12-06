@@ -3,20 +3,20 @@ import { ADD_TASK, EDIT_TASK, UPDATE_TASK, CANCEL_MODAL, SET_FILTER } from '../c
 const initialState = {
 	tasks: [
 		{
-			task: 'Especial Navidad Wong',
+			task: 'Learn react',
 			fecha: '25/11/2018 13:20:12',
 			status: 'todo',
 			id: 'k02a67f3-2683-4fa6-a4e7-7d7da76dbeae'
 		},
 		{
-			task: 'Semana Wong',
+			task: 'Build with redux',
 			fecha: '25/11/2018 15:30:16',
 			status: 'doing',
 			id: 'k02a67f3-2913-4fa6-a4e7-4d7da76dbeea'
 		}
 	],
 	modal: false,
-	setFilter: 'all'
+	filterBy: 'all'
 }
 
 const taskReducer = (state = initialState, action) => {
@@ -70,7 +70,7 @@ const taskReducer = (state = initialState, action) => {
 						}
 					}
 				}), */
-				setFilter: action.payload
+				filterBy: action.payload
 			}
 		default:
 			console.log('Reducer default ---' + state)
