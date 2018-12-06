@@ -27,18 +27,21 @@ class ConnectedSidebar extends Component {
 	render() {
 		return (
 			<div>
-				<a className="filter-btn" onClick={this.handleFilter} filter-tag="all">
-					All
-				</a>
-				<a className="filter-btn" onClick={this.handleFilter} filter-tag="todo">
-					ToDo
-				</a>
-				<a className="filter-btn" onClick={this.handleFilter} filter-tag="doing">
-					Doing
-				</a>
-				<a className="filter-btn" onClick={this.handleFilter} filter-tag="done">
-					Done
-				</a>
+				<div className="counter">{this.props.tasks.length} task(s)</div>
+				<div className="controls">
+					<a className="filter-btn" onClick={this.handleFilter} filter-tag="all">
+						All
+					</a>
+					<a className="filter-btn" onClick={this.handleFilter} filter-tag="todo">
+						ToDo
+					</a>
+					<a className="filter-btn" onClick={this.handleFilter} filter-tag="doing">
+						Doing
+					</a>
+					<a className="filter-btn" onClick={this.handleFilter} filter-tag="done">
+						Done
+					</a>
+				</div>
 			</div>
 		)
 	}
