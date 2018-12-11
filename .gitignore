@@ -25,3 +25,6 @@ Thumbs.db
 node_modules
 */node_modules
 /node_modules/*
+
+# GIT
+package-lock.json

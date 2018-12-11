@@ -6,7 +6,7 @@ import { filtroBonito } from './functions'
 //import ItemTask from '../components/itemTask'
 
 const mapStateToProps = state => {
-	console.log('Main mapStateToProps List: ' + state.setFilter)
+	console.log('Main mapStateToProps List: ' + state.tasks)
 
 	return {
 		tasks: state.tasks,

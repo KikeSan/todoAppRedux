@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { cancelModal, updateTask } from '../actions/index'
+import { cancelModal, updateTask, removeTask } from '../actions/index'
 
 const mapStateToProps = state => {
 	console.log('Main mapStateToProps Modal: ' + state.tasks[0].status)
@@ -12,7 +12,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		cancelModal: () => dispatch(cancelModal()),
-		updateTask: (Task, Status, Id) => dispatch(updateTask(Task, Status, Id))
+		updateTask: (Task, Status, Id) => dispatch(updateTask(Task, Status, Id)),
+		removeTask: (Id) => dispatch(removeTask(Id))
 	}
 }
 
@@ -28,6 +29,7 @@ class ConnectedModal extends Component {
 		this.handleCancel = this.handleCancel.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChangeSelect = this.handleChangeSelect.bind(this)
+		this.handleRemove = this.handleRemove.bind(this)
 	}
 	componentWillMount() {
 		console.log('WILLMOUNT: ' + this.props.taskEdit.status)
@@ -58,6 +60,9 @@ class ConnectedModal extends Component {
 		e.preventDefault()
 		this.props.updateTask(this.state.task, this.state.status, this.state.id)
 	}
+	handleRemove(){
+		this.props.removeTask(this.state.id)
+	}
 
 	render() {
 		return (
@@ -67,17 +72,20 @@ class ConnectedModal extends Component {
 						<label htmlFor="title">Task:</label>
 						<input type="text" id="title" value={this.state.task} onChange={this.handleChange} />
 						<div className="form-group">
-							<label htmlFor="status">Change status</label>
+							{/* <label htmlFor="status">Change status</label> */}
 							<select className="form-control" id="status" value={this.state.status} onChange={this.handleChangeSelect}>
 								<option value="todo">To do</option>
 								<option value="doing">Doing</option>
 								<option value="done">Done</option>
 							</select>
 						</div>
-						<button type="button" onClick={this.handleCancel}>
+						<button type="button" onClick={this.handleCancel} className="btn-outline">
 							CANCEL
 						</button>
-						<button type="submit">SAVE</button>
+						<button type="button" onClick={this.handleRemove} className="btn-outline">
+							REMOVE
+						</button>
+						<button type="submit" className="btn-solid">SAVE</button>
 					</form>
 				</div>
 			</div>

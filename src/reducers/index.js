@@ -1,4 +1,4 @@
-import { ADD_TASK, EDIT_TASK, UPDATE_TASK, CANCEL_MODAL, SET_FILTER } from '../constants/action-types'
+import { ADD_TASK, EDIT_TASK, UPDATE_TASK, CANCEL_MODAL, SET_FILTER, REMOVE_TASK } from '../constants/action-types'
 
 const initialState = {
 	tasks: [
@@ -71,6 +71,14 @@ const taskReducer = (state = initialState, action) => {
 					}
 				}), */
 				filterBy: action.payload
+			}
+		case REMOVE_TASK:
+		return{
+			...state,
+				tasks: state.tasks.filter(idfiltro=>{
+						return idfiltro.id !== action.payload
+				}),
+				modal: false
 			}
 		default:
 			console.log('Reducer default ---' + state)

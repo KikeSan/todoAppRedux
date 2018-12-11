@@ -18,3 +18,26 @@
   background-color: $red;
   color: $white;
 }
+
+.btn-outline{
+  background-color: #fff;
+  border-color: #3273dc;
+  color: #3273dc;
+  border: 1px solid;
+  border-radius: 4px;
+  &:hover{
+    background-color: #3273dc;
+    color: #fff;
+  }
+}
+.btn-solid{
+  background-color: #3273dc;
+  border-color: #3273dc;
+  color: #fff;
+  border: 1px solid;
+  border-radius: 4px;
+  &:hover{
+    background-color: #2061ca;
+    color: #fff;
+  }
+}

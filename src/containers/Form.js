@@ -38,7 +38,7 @@ class ConnectedForm extends Component {
 			<form onSubmit={this.handleSubmit}>
 				<label htmlFor="task">Add task</label>
 				<input type="text" id="task" value={this.state.task} onChange={this.handleChange} />
-				<button type="submit">ADD</button>
+				<button type="submit" className="btn-outline">ADD</button>
 			</form>
 		)
 	}

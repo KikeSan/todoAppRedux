@@ -1,4 +1,4 @@
-import { ADD_TASK, EDIT_TASK, CANCEL_MODAL, UPDATE_TASK, SET_FILTER } from '../constants/action-types'
+import { ADD_TASK, EDIT_TASK, CANCEL_MODAL, UPDATE_TASK, SET_FILTER, REMOVE_TASK } from '../constants/action-types'
 
 export const addTask = task => {
 	return {
@@ -28,4 +28,9 @@ export const updateTask = (Task, Status, Id) => ({
 export const setFilter = filter => ({
 	type: SET_FILTER,
 	payload: filter
+})
+
+export const removeTask = id => ({
+	type: REMOVE_TASK,
+	payload:id
 })
