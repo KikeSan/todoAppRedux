@@ -1,4 +1,4 @@
-![Image](https://kike.pe/img/favicon-152.png)
+![Image](https://kike.pe/img/favicon-32.png)
 # Practicando redux
 
 Ahora toca el típico ejercicio To Do App
