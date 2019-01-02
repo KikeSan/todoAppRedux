@@ -1,43 +1,48 @@
 .btn {
-  background-color: $grey1;
-  border: none;
-  border-radius: 3px;
-  color: $grey2;
-  height: 40px;
-  line-height: 36px;
-  outline: 0;
-  padding: 0 15px;
+	background-color: $grey1;
+	border: none;
+	border-radius: 3px;
+	color: $grey2;
+	height: 40px;
+	line-height: 36px;
+	outline: 0;
+	padding: 0 15px;
 }
 
 .btn-primary {
-  background-color: $blue;
-  color: $white;
+	background-color: $blue;
+	color: $white;
 }
 
 .btn-error {
-  background-color: $red;
-  color: $white;
+	background-color: $red;
+	color: $white;
 }
 
-.btn-outline{
-  background-color: #fff;
-  border-color: #3273dc;
-  color: #3273dc;
-  border: 1px solid;
-  border-radius: 4px;
-  &:hover{
-    background-color: #3273dc;
-    color: #fff;
-  }
+.btn-outline {
+	background-color: #fff;
+	border-color: #3273dc;
+	color: #3273dc;
+	border: 1px solid;
+	border-radius: 4px;
+
+	font-size: 11px;
+	padding: 7px 13px 7px;
+	text-decoration: none;
+	&:hover {
+		background-color: #3273dc;
+		color: #fff;
+	}
 }
-.btn-solid{
-  background-color: #3273dc;
-  border-color: #3273dc;
-  color: #fff;
-  border: 1px solid;
-  border-radius: 4px;
-  &:hover{
-    background-color: #2061ca;
-    color: #fff;
-  }
+.btn-solid {
+	@extend .btn-outline;
+	background-color: #3273dc;
+	border-color: #3273dc;
+	color: #fff;
+	border: 1px solid;
+	border-radius: 4px;
+	&:hover {
+		background-color: #2061ca;
+		color: #fff;
+	}
 }

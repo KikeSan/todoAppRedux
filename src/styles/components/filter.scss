@@ -2,7 +2,7 @@
 	border-top: 1px solid #e7e6e6;
 	text-align: right;
 	padding: 10px;
-	.counter{
+	.counter {
 		float: left;
 		font-weight: 300;
 		font-size: 12px;
@@ -17,7 +17,9 @@
 		border-radius: 4px;
 		border: 1px solid transparent;
 		cursor: pointer;
-		&:hover{
+		text-decoration: none;
+		color: $grey2;
+		&:hover {
 			border: 1px solid #b9b6b6;
 		}
 	}

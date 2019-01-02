@@ -1,67 +1,68 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { cancelModal, updateTask, removeTask } from '../actions/index'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { cancelModal, updateTask, removeTask } from "../actions/index";
+import { Link } from "react-router-dom";
 
 const mapStateToProps = state => {
-	console.log('Main mapStateToProps Modal: ' + state.tasks[0].status)
+	console.log("Main mapStateToProps Modal: " + state.tasks[0].status);
 	return {
 		tasks: state.tasks,
 		taskEdit: state.taskEdit
-	}
-}
+	};
+};
 const mapDispatchToProps = dispatch => {
 	return {
 		cancelModal: () => dispatch(cancelModal()),
 		updateTask: (Task, Status, Id) => dispatch(updateTask(Task, Status, Id)),
-		removeTask: (Id) => dispatch(removeTask(Id))
-	}
-}
+		removeTask: Id => dispatch(removeTask(Id))
+	};
+};
 
 class ConnectedModal extends Component {
 	constructor() {
-		super()
+		super();
 		this.state = {
-			task: '',
-			status: '',
-			id: ''
-		}
-		this.handleChange = this.handleChange.bind(this)
-		this.handleCancel = this.handleCancel.bind(this)
-		this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChangeSelect = this.handleChangeSelect.bind(this)
-		this.handleRemove = this.handleRemove.bind(this)
+			task: "",
+			status: "",
+			id: ""
+		};
+		this.handleChange = this.handleChange.bind(this);
+		this.handleCancel = this.handleCancel.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChangeSelect = this.handleChangeSelect.bind(this);
+		this.handleRemove = this.handleRemove.bind(this);
 	}
 	componentWillMount() {
-		console.log('WILLMOUNT: ' + this.props.taskEdit.status)
+		console.log("WILLMOUNT: " + this.props.taskEdit.status);
 
 		this.setState({
 			task: this.props.taskEdit.task,
 			status: this.props.taskEdit.status,
 			id: this.props.taskEdit.id
-		})
+		});
 	}
 	handleCancel(e) {
-		this.props.cancelModal()
+		this.props.cancelModal();
 	}
 	handleChange(e) {
 		this.setState({
 			task: e.target.value
-		})
+		});
 	}
 	handleChangeSelect(e) {
-		console.log('handleChangeSelect---> ' + e.target.value)
+		console.log("handleChangeSelect---> " + e.target.value);
 		this.setState({
 			status: e.target.value
-		})
+		});
 	}
 	handleSubmit(e) {
-		console.log('SUBMIT::: ' + this.state.status)
+		console.log("SUBMIT::: " + this.state.status);
 
-		e.preventDefault()
-		this.props.updateTask(this.state.task, this.state.status, this.state.id)
+		//e.preventDefault();
+		this.props.updateTask(this.state.task, this.state.status, this.state.id);
 	}
-	handleRemove(){
-		this.props.removeTask(this.state.id)
+	handleRemove() {
+		this.props.removeTask(this.state.id);
 	}
 
 	render() {
@@ -79,23 +80,28 @@ class ConnectedModal extends Component {
 								<option value="done">Done</option>
 							</select>
 						</div>
-						<button type="button" onClick={this.handleCancel} className="btn-outline">
+						<Link to="/" onClick={this.handleCancel} className="btn-outline">
 							CANCEL
-						</button>
+						</Link>
 						<button type="button" onClick={this.handleRemove} className="btn-outline">
 							REMOVE
 						</button>
-						<button type="submit" className="btn-solid">SAVE</button>
+						{/* <button type="submit" className="btn-solid">
+							SAVE
+						</button> */}
+						<Link to="/" onClick={this.handleSubmit} className="btn-solid">
+							SAVE
+						</Link>
 					</form>
 				</div>
 			</div>
-		)
+		);
 	}
 }
 
 const Modal = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(ConnectedModal)
+)(ConnectedModal);
 
-export default Modal
+export default Modal;
