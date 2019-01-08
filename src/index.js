@@ -4,6 +4,20 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import firebase from "firebase";
+
+// Initialize Firebase
+// TODO: Replace with your project's customized code snippet
+var config = {
+	apiKey: "AIzaSyAxt-MnqrVcRWrPeAcWYt_ApueQIuiokUU",
+	authDomain: "todoapp-c0094.firebaseapp.com",
+	databaseURL: "https://todoapp-c0094.firebaseio.com",
+	storageBucket: "todoapp-c0094.appspot.com",
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+console.log('data: ',firebase.database().ref('tasks').once('value'));
+
 import App from "./App";
 //import Sidebar from './containers/Sidebar'
 import reducers from "./reducers";
