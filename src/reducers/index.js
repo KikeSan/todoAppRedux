@@ -1,29 +1,5 @@
 import { ADD_TASK, EDIT_TASK, UPDATE_TASK, CANCEL_MODAL, SET_FILTER, REMOVE_TASK } from '../constants/action-types'
 
-import firebase from "firebase";
-
-//let initialState = {}
-
-// Initialize Firebase
-// TODO: Replace with your project's customized code snippet
-var config = {
-	apiKey: 'AIzaSyAxt-MnqrVcRWrPeAcWYt_ApueQIuiokUU',
-	authDomain: 'todoapp-c0094.firebaseapp.com',
-	databaseURL: 'https://todoapp-c0094.firebaseio.com',
-	projectId: 'todoapp-c0094',
-	storageBucket: 'todoapp-c0094.appspot.com',
-	messagingSenderId: '372140339810'
-}
-var defaultApp = firebase.initializeApp(config)
-var database = firebase.database()
-console.log(defaultApp.name)
-var starCountRef = firebase.database().ref()
-starCountRef.on('value', function(snapshot) {
-	//updateStarCount(postElement, snapshot.val());
-	console.log('result:::', snapshot.val())
-	//initialState = snapshot.val()
-})
-
 const initialState = {
 	tasks: [
 		{
@@ -97,10 +73,10 @@ const taskReducer = (state = initialState, action) => {
 				filterBy: action.payload
 			}
 		case REMOVE_TASK:
-		return{
-			...state,
-				tasks: state.tasks.filter(idfiltro=>{
-						return idfiltro.id !== action.payload
+			return {
+				...state,
+				tasks: state.tasks.filter(idfiltro => {
+					return idfiltro.id !== action.payload
 				}),
 				modal: false
 			}
