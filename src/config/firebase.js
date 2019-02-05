@@ -13,11 +13,9 @@ var config = {
 	messagingSenderId: '372140339810'
 }
 var defaultApp = firebase.initializeApp(config)
-var database = firebase.database()
 console.log(defaultApp.name)
 var starCountRef = firebase.database().ref()
-starCountRef.on('value', function(snapshot) {
-	//updateStarCount(postElement, snapshot.val());
+/* starCountRef.on('value', function(snapshot) {
 	console.log('result:::', snapshot.val())
-	//initialState = snapshot.val()
-})
+}) */
+export const todosRef = starCountRef.child('tasks')

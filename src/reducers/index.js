@@ -1,4 +1,11 @@
-import { ADD_TASK, EDIT_TASK, UPDATE_TASK, CANCEL_MODAL, SET_FILTER, REMOVE_TASK } from '../constants/action-types'
+import {combineReducers} from 'redux'
+import data from "./dataReducer";
+
+export default combineReducers({
+	data
+});
+
+/* import { ADD_TASK, EDIT_TASK, UPDATE_TASK, CANCEL_MODAL, SET_FILTER, REMOVE_TASK } from '../constants/action-types'
 
 const initialState = {
 	tasks: [
@@ -63,13 +70,6 @@ const taskReducer = (state = initialState, action) => {
 		case SET_FILTER:
 			return {
 				...state,
-				/* tasks: state.tasks.map(afiltrar => {
-					if (afiltrar.status === action.payload) {
-						return {
-							task: afiltrar
-						}
-					}
-				}), */
 				filterBy: action.payload
 			}
 		case REMOVE_TASK:
@@ -88,3 +88,4 @@ const taskReducer = (state = initialState, action) => {
 }
 
 export default taskReducer
+ */

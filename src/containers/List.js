@@ -7,7 +7,7 @@ import { filtroBonito } from "./functions";
 import { Link, withRouter } from "react-router-dom";
 
 const mapStateToProps = state => {
-	console.log("Main mapStateToProps List: " + state.tasks);
+	console.log("Main mapStateToProps List: " , state.tasks);
 
 	return {
 		tasks: state.tasks,

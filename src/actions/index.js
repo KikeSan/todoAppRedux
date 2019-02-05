@@ -1,4 +1,27 @@
-import { ADD_TASK, EDIT_TASK, CANCEL_MODAL, UPDATE_TASK, SET_FILTER, REMOVE_TASK } from '../constants/action-types'
+import { todosRef } from "../config/firebase";
+import { ADD_TASK, EDIT_TASK, CANCEL_MODAL, UPDATE_TASK, SET_FILTER, REMOVE_TASK, FETCH_TODOS } from '../constants/action-types'
+
+
+export const addToDo = newToDo => async dispatch => {
+	todosRef.push().set(newToDo);
+};
+
+export const completeToDo = completeToDoId => async dispatch => {
+	todosRef.child(completeToDoId).remove();
+};
+
+export const fetchToDos = () => async dispatch => {
+	todosRef.on("value", snapshot => {
+		dispatch({
+			type: FETCH_TODOS,
+			payload: snapshot.val()
+		});
+	});
+};
+
+
+
+
 
 export const addTask = task => {
 	return {
