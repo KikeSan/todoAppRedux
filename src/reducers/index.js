@@ -81,7 +81,7 @@ const taskReducer = (state = initialState, action) => {
 				modal: false
 			}
 		default:
-			console.log('Reducer default ---' + state)
+			console.log('Reducer default ---', state)
 
 			return state
 	}
