@@ -73,15 +73,15 @@ const taskReducer = (state = initialState, action) => {
 				filterBy: action.payload
 			}
 		case REMOVE_TASK:
-		return{
-			...state,
-				tasks: state.tasks.filter(idfiltro=>{
-						return idfiltro.id !== action.payload
+			return {
+				...state,
+				tasks: state.tasks.filter(idfiltro => {
+					return idfiltro.id !== action.payload
 				}),
 				modal: false
 			}
 		default:
-			console.log('Reducer default ---' + state)
+			console.log('Reducer default ---', state)
 
 			return state
 	}
