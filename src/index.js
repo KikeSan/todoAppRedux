@@ -4,8 +4,6 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import ToDoList from "./components/ToDoList";
-
 import App from "./App";
 //import Sidebar from './containers/Sidebar'
 import reducers from "./reducers";
@@ -17,7 +15,7 @@ root
 	? ReactDOM.render(
 			<Provider store={store}>
 				<Router>
-					<Route path="/" component={ToDoList } />
+					<Route path="/" component={App} />
 					{/* <App /> */}
 				</Router>
 			</Provider>,

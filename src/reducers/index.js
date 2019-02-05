@@ -1,11 +1,4 @@
-import {combineReducers} from 'redux'
-import data from "./dataReducer";
-
-export default combineReducers({
-	data
-});
-
-/* import { ADD_TASK, EDIT_TASK, UPDATE_TASK, CANCEL_MODAL, SET_FILTER, REMOVE_TASK } from '../constants/action-types'
+import { ADD_TASK, EDIT_TASK, UPDATE_TASK, CANCEL_MODAL, SET_FILTER, REMOVE_TASK } from '../constants/action-types'
 
 const initialState = {
 	tasks: [
@@ -34,7 +27,7 @@ const taskReducer = (state = initialState, action) => {
 				tasks: state.tasks.concat(action.payload)
 			}
 		case EDIT_TASK:
-			console.log('reducer EDIT_TASK: ' + action.payload)
+			console.log('reducer EDIT_TASK: ', action.payload)
 
 			return {
 				...state,
@@ -44,7 +37,7 @@ const taskReducer = (state = initialState, action) => {
 				modal: true
 			}
 		case UPDATE_TASK:
-			console.log('Reducer UPDATE - ' + action.payload.status)
+			console.log('Reducer UPDATE - ', action.payload.status)
 
 			return {
 				...state,
@@ -70,6 +63,13 @@ const taskReducer = (state = initialState, action) => {
 		case SET_FILTER:
 			return {
 				...state,
+				/* tasks: state.tasks.map(afiltrar => {
+					if (afiltrar.status === action.payload) {
+						return {
+							task: afiltrar
+						}
+					}
+				}), */
 				filterBy: action.payload
 			}
 		case REMOVE_TASK:
@@ -88,4 +88,3 @@ const taskReducer = (state = initialState, action) => {
 }
 
 export default taskReducer
- */
